@@ -1,48 +1,55 @@
+/* Resetting default margin, padding, and box-sizing for all elements */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-.main-box {
-    position: relative;
-    max-width: 370px;
-    max-height: 370px;
-    border-radius: 5%;
-    background: linear-gradient(125deg, #00feba, #5b548a);
-    margin: 0 auto;
-    margin-top: 5%;
+/* Styling for the body element */
+body {
     display: flex;
-    font-size: 18px;
-    justify-content: space-around;
-    flex-flow: row wrap;
-    padding: 40px;
-    font-size: 70px;
-    text-align: center;
+    flex-direction: column;
+    align-items: center;
 }
 
+/* Styling for the main box container */
+.main-box {
+    max-width: 350px;
+    max-height: 350px;
+    border-radius: 5%; 
+    background: linear-gradient(135deg, #00feba, #5b548a);
+    margin-top: 5%; 
+    display: flex;
+    justify-content: space-around;
+    flex-flow: row wrap; 
+    padding: 40px; 
+    font-size: 70px; 
+    text-align: center; 
+}
+
+/* Styling for the buttons inside the main box */
 .buttons {
-    width: 28%;
-    height: 13vh;
+    width: 80px;
+    height: 80px;
     margin-top: 10px;
     background: whitesmoke;
-    border-radius: 8px;
+    border-radius: 5px; 
     cursor: pointer;
 }
 
+/* Styling for the "restart" button */
 #restart {
-    position: absolute;
-    margin-left: 45%;
     width: 120px;
     height: 45px;
-    margin-top: 3%;
-    border: 1px solid lightseagreen;
+    margin-top: 3%; 
+    border: 1px solid lightseagreen; 
     background: whitesmoke;
     color: lightseagreen;
-    border-radius: 8px;
-    font-size: 1.8rem;
+    border-radius: 8px; 
+    font-size: 1.8rem; 
 }
 
+/* Styling for the "restart" button when active (pressed) */
 #restart:active {
     background: lightseagreen;
     color: whitesmoke;
