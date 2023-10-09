@@ -1,45 +1,29 @@
 var count = 1; // Initialize count to keep track of moves
 
-
 // Main function to handle player moves
 function fill(control) {
-    if (count <= 8)  // Check if the game is not yet over
-    {
+    if (count <= 9) { // Check if the game is not yet over
         if (count % 2 != 0) {
-            putData(control.id, "X");
-            document.getElementById(control.id).style.pointerEvents = "none";
+            document.getElementById(control.id).textContent = "X";
+        } else {
+            document.getElementById(control.id).textContent = "O";
         }
-        else {
-            putData(control.id, "O");
-            document.getElementById(control.id).style.pointerEvents = "none";
-        }
+        document.getElementById(control.id).style.pointerEvents = "none";
         count++;
+
         // Check for a win after each move
         if (checkWin()) {
-            setTimeout(function () { alert("Winner") }, 200);
-            setTimeout(reset, 200);
-        }
-    }
-    else if (count == 9) // All moves have been made, and it's a draw
-    {
-        putData(control.id, "X");
-        document.getElementById(control.id).style.pointerEvents = "none";
-        if (checkWin()) {
-            setTimeout(function () { alert("Winner") }, 200);
-            setTimeout(reset, 200);
-        }
-        else {
-            setTimeout(function () { window.alert('Match Draw') }, 200);
-            setTimeout(reset, 200);
+            setTimeout(function () { alert("Winner"); reset(); }, 200);
+        } else if (count > 9) {
+            setTimeout(function () { alert("Match Draw"); reset(); }, 200);
         }
     }
 }
 
-
 // Reset the game 
 function reset() {
     for (var i = 1; i <= 9; i++) {
-        document.getElementById('div' + i).innerHTML = "";
+        document.getElementById('div' + i).textContent = "";
         document.getElementById('div' + i).style.pointerEvents = 'auto';
     }
     count = 1;
@@ -69,15 +53,10 @@ function checkCondition(div1, div2, div3) {
         getData(div2) == getData(div3)) {
         return true;
     }
+    return false;
 }
 
-
-// Set the innerHTML of a div
-function putData(div, data) {
-    document.getElementById(div).innerHTML = data;
-}
-
-// Get the innerHTML of a div
+// Get the textContent of a div
 function getData(div) {
-    return document.getElementById(div).innerHTML;
+    return document.getElementById(div).textContent;
 }
